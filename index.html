@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IELTS Writing Diagnostic - Upload Your Essay</title>
+    <title>WriteXray - IELTS Writing Diagnostic</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -45,17 +46,25 @@
             padding-top: 32px;
         }
 
-        h1 {
+        .logo {
             font-family: 'Crimson Pro', serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
             color: var(--text);
-            margin-bottom: 16px;
-            line-height: 1.2;
+            font-weight: 500;
+            margin-bottom: 12px;
         }
 
         .subtitle {
-            font-size: 1.125rem;
+            font-size: 1rem;
             color: var(--text-light);
             max-width: 500px;
             margin: 0 auto;
@@ -251,8 +260,12 @@
                 padding: 16px;
             }
 
-            h1 {
-                font-size: 2rem;
+            .logo {
+                font-size: 2.25rem;
+            }
+
+            .tagline {
+                font-size: 1.125rem;
             }
 
             .form-card {
@@ -278,31 +291,32 @@
 <body>
     <div class="container">
         <header>
-            <h1>IELTS Writing Diagnostic</h1>
-            <p class="subtitle">Get your biggest writing error identified in 24 hours. Band 5 to Band 7 starts with knowing what's holding you back.</p>
+            <h1 class="logo">WriteXray</h1>
+            <p class="tagline">See exactly what's blocking your Band 7</p>
+            <p class="subtitle">Get your biggest writing error identified in 24 hours. Like an X-ray for your IELTS essay.</p>
         </header>
 
         <div class="value-props">
             <div class="value-prop">
                 <div class="value-prop-icon">🎯</div>
                 <h3>One Critical Error</h3>
-                <p>Focus on what matters most, not 50 generic tips</p>
+                <p>Not 50 generic tips—just the ONE thing holding you back</p>
             </div>
             <div class="value-prop">
                 <div class="value-prop-icon">⚡</div>
-                <h3>24-Hour Feedback</h3>
-                <p>Fast, actionable insights when you need them</p>
+                <h3>24-Hour Diagnosis</h3>
+                <p>Fast, precise analysis when you need it</p>
             </div>
             <div class="value-prop">
-                <div class="value-prop-icon">📈</div>
-                <h3>Proven Method</h3>
-                <p>Based on 40+ common IELTS error patterns</p>
+                <div class="value-prop-icon">🔬</div>
+                <h3>Proven Patterns</h3>
+                <p>Based on 40+ common IELTS writing errors</p>
             </div>
         </div>
 
         <div class="form-card">
             <div class="form-header">
-                <h2>Submit Your Essay</h2>
+                <h2>Get Your X-ray</h2>
                 <div class="price">
                     <span class="price-amount">$9</span>
                     <span class="price-description">Pay after submission</span>
@@ -330,7 +344,7 @@
                 <div class="form-group">
                     <label for="email">Email Address <span class="required">*</span></label>
                     <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                    <p class="helper-text">We'll send your diagnostic report here within 24 hours</p>
+                    <p class="helper-text">We'll send your X-ray report here within 24 hours</p>
                 </div>
 
                 <div class="form-group">
@@ -348,7 +362,7 @@
         </div>
 
         <footer>
-            <p>Have questions? Reach out at your-email@example.com</p>
+            <p>Questions? Email us at your-email@example.com</p>
         </footer>
     </div>
 
@@ -368,10 +382,10 @@
         const submitBtn = document.getElementById('submitBtn');
         const successMessage = document.getElementById('successMessage');
         
-        // REPLACE THIS URL WITH YOUR GOOGLE FORMS URL
-        const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSejiVSDGLMw9D-zrweytXNSj_kYxVH10CpQX160wFOH4saKBg/viewform?fbzx=2437746606551193453';
+        // Your Google Forms URL
+        const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSejiVSDGLMw9D-zrweytXNSj_kYxVH10CpQX160wFOH4saKBg/viewform?usp=header';
         
-        // REPLACE THIS WITH YOUR GUMROAD PRODUCT URL
+        // Your Gumroad Product URL
         const GUMROAD_PAYMENT_URL = 'https://fernandescraft515.gumroad.com/l/qydrpb';
         
         form.addEventListener('submit', async function(e) {
@@ -384,12 +398,12 @@
             const formData = new FormData();
             
             // Map form fields to Google Forms entry IDs
-            // You'll need to update these entry IDs after creating your Google Form
-            formData.append('entry.405221016', document.getElementById('topic').value);
-            formData.append('entry.715552114', document.getElementById('essay').value);
-            formData.append('entry.202762967', document.getElementById('name').value);
-            formData.append('entry.119885519', document.getElementById('email').value);
-            formData.append('entry.711036358', document.getElementById('whatsapp').value || 'Not provided');
+            // UPDATE THESE ENTRY IDs FROM YOUR GOOGLE FORM PREFILL LINK
+            formData.append('entry.XXXXXXXX', document.getElementById('topic').value);
+            formData.append('entry.YYYYYYYY', document.getElementById('essay').value);
+            formData.append('entry.ZZZZZZZZ', document.getElementById('name').value);
+            formData.append('entry.AAAAAAAA', document.getElementById('email').value);
+            formData.append('entry.BBBBBBBB', document.getElementById('whatsapp').value || 'Not provided');
 
             try {
                 // Submit to Google Forms
