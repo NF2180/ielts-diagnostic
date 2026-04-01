@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Writing Diagnostic - Upload Your Essay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d4511e;
+            --primary-dark: #b63d14;
+            --text: #1a1a1a;
+            --text-light: #5a5a5a;
+            --bg: #fdfbf7;
+            --card-bg: #ffffff;
+            --border: #e8e3d8;
+            --success: #2d7a3e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-top: 32px;
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .value-prop {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .value-prop-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .value-prop h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .value-prop p {
+            font-size: 0.9375rem;
+            color: var(--text-light);
+        }
+
+        .form-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .form-header {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .form-header h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .price-amount {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .price-description {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--text);
+            font-size: 0.9375rem;
+        }
+
+        label .required {
+            color: var(--primary);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            background: var(--bg);
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+        }
+
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        .helper-text {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px 32px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 12px;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(212, 81, 30, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .success-message {
+            display: none;
+            background: var(--success);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .form-card {
+                padding: 28px 20px;
+            }
+
+            .value-props {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .price {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .price-amount {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>IELTS Writing Diagnostic</h1>
+            <p class="subtitle">Get your biggest writing error identified in 24 hours. Band 5 to Band 7 starts with knowing what's holding you back.</p>
+        </header>
+
+        <div class="value-props">
+            <div class="value-prop">
+                <div class="value-prop-icon">🎯</div>
+                <h3>One Critical Error</h3>
+                <p>Focus on what matters most, not 50 generic tips</p>
+            </div>
+            <div class="value-prop">
+                <div class="value-prop-icon">⚡</div>
+                <h3>24-Hour Feedback</h3>
+                <p>Fast, actionable insights when you need them</p>
+            </div>
+            <div class="value-prop">
+                <div class="value-prop-icon">📈</div>
+                <h3>Proven Method</h3>
+                <p>Based on 40+ common IELTS error patterns</p>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <div class="form-header">
+                <h2>Submit Your Essay</h2>
+                <div class="price">
+                    <span class="price-amount">$9</span>
+                    <span class="price-description">Pay after submission</span>
+                </div>
+            </div>
+
+            <form id="essayForm">
+                <div class="form-group">
+                    <label for="topic">Essay Question/Topic <span class="required">*</span></label>
+                    <input type="text" id="topic" name="topic" required placeholder="e.g., Do advantages of online communication outweigh disadvantages?">
+                    <p class="helper-text">Copy and paste the exact IELTS question</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="essay">Your Essay <span class="required">*</span></label>
+                    <textarea id="essay" name="essay" required placeholder="Paste your complete Writing Task 2 essay here..."></textarea>
+                    <p class="char-count"><span id="wordCount">0</span> words</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Your Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    <p class="helper-text">We'll send your diagnostic report here within 24 hours</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp Number (Optional)</label>
+                    <input type="text" id="whatsapp" name="whatsapp" placeholder="+91 98765 43210">
+                    <p class="helper-text">For faster delivery and follow-up questions</p>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Submit Essay</button>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                ✓ Essay submitted! Redirecting to payment...
+            </div>
+        </div>
+
+        <footer>
+            <p>Have questions? Reach out at your-email@example.com</p>
+        </footer>
+    </div>
+
+    <script>
+        // Word counter
+        const essayTextarea = document.getElementById('essay');
+        const wordCountSpan = document.getElementById('wordCount');
+
+        essayTextarea.addEventListener('input', function() {
+            const text = this.value.trim();
+            const words = text === '' ? 0 : text.split(/\s+/).length;
+            wordCountSpan.textContent = words;
+        });
+
+        // Form submission handler
+        const form = document.getElementById('essayForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        
+        // REPLACE THIS URL WITH YOUR GOOGLE FORMS URL
+        const GOOGLE_FORMS_URL = 'YOUR_GOOGLE_FORMS_ACTION_URL_HERE';
+        
+        // REPLACE THIS WITH YOUR GUMROAD PRODUCT URL
+        const GUMROAD_PAYMENT_URL = 'https://nitin.gumroad.com/l/your-product-link';
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Disable button to prevent double submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            
+            const formData = new FormData();
+            
+            // Map form fields to Google Forms entry IDs
+            // You'll need to update these entry IDs after creating your Google Form
+            formData.append('entry.XXXXXXXX', document.getElementById('topic').value);
+            formData.append('entry.YYYYYYYY', document.getElementById('essay').value);
+            formData.append('entry.ZZZZZZZZ', document.getElementById('name').value);
+            formData.append('entry.AAAAAAAA', document.getElementById('email').value);
+            formData.append('entry.BBBBBBBB', document.getElementById('whatsapp').value || 'Not provided');
+
+            try {
+                // Submit to Google Forms
+                await fetch(GOOGLE_FORMS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                });
+
+                // Show success message
+                successMessage.classList.add('show');
+                successMessage.innerHTML = '✓ Essay submitted successfully! Redirecting to payment...';
+                
+                // Wait 2 seconds, then redirect to payment
+                setTimeout(() => {
+                    window.location.href = GUMROAD_PAYMENT_URL;
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error submitting your essay. Please try again or email us directly.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Essay';
+            }
+        });
+    </script>
+</body>
+</html>
